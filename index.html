@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RetroResume.site - Build Your Resume Like It's 1999!</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+    <div id="security-overlay"></div>
+    <div id="main-container">
+        <header>
+            <h1><marquee behavior="scroll" direction="left">Welcome to RetroResume.site - Your 90s Style Resume Builder!</marquee></h1>
+            <div class="blink">NEW! INTERNET RESUME SERVICE</div>
+        </header>
+        
+        <nav>
+            <ul>
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#build">Build Resume</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </nav>
+        
+        <main>
+            <section id="home">
+                <h2>Create Your Professional Resume - 1999 Style!</h2>
+                <p>Welcome to the most <strong>secure</strong> and <strong>retro</strong> resume building service on the web! Our advanced security system ensures your data is protected while you create a resume that takes you back to the golden age of the internet.</p>
+                <p>Click "Build Resume" to get started for just ₹5-₹10!</p>
+                <div class="construction">UNDER CONSTRUCTION</div>
+            </section>
+            
+            <section id="build" style="display:none;">
+                <h2>Build Your Resume</h2>
+                <form id="resume-form">
+                    <fieldset>
+                        <legend>Personal Information</legend>
+                        <div class="form-group">
+                            <label for="fullname">Full Name:*</label>
+                            <input type="text" id="fullname" name="fullname" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address:*</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number:*</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Full Address:*</label>
+                            <textarea id="address" name="address" required></textarea>
+                        </div>
+                    </fieldset>
+                    
+                    <fieldset>
+                        <legend>Education</legend>
+                        <div class="form-group">
+                            <label for="highest_degree">Highest Degree:*</label>
+                            <input type="text" id="highest_degree" name="highest_degree" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="university">University/Institution:*</label>
+                            <input type="text" id="university" name="university" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="graduation_year">Year of Graduation:*</label>
+                            <input type="number" id="graduation_year" name="graduation_year" required>
+                        </div>
+                    </fieldset>
+                    
+                    <fieldset>
+                        <legend>Work Experience</legend>
+                        <div id="experience-container">
+                            <div class="experience-entry">
+                                <div class="form-group">
+                                    <label>Job Title:*</label>
+                                    <input type="text" name="job_title[]" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Company:*</label>
+                                    <input type="text" name="company[]" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Duration (Years):*</label>
+                                    <input type="number" name="duration[]" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Responsibilities:*</label>
+                                    <textarea name="responsibilities[]" required></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" id="add-experience" class="btn">Add Another Job</button>
+                    </fieldset>
+                    
+                    <fieldset>
+                        <legend>Skills</legend>
+                        <div class="form-group">
+                            <label for="skills">List Your Skills (comma separated):*</label>
+                            <textarea id="skills" name="skills" required></textarea>
+                        </div>
+                    </fieldset>
+                    
+                    <div class="form-group">
+                        <button type="submit" id="submit-resume" class="btn">Generate Resume (₹<span id="dynamic-price">5</span>)</button>
+                    </div>
+                </form>
+            </section>
+            
+            <section id="pricing" style="display:none;">
+                <h2>Our Simple Pricing</h2>
+                <div class="pricing-table">
+                    <div class="price-option">
+                        <h3>Basic Resume</h3>
+                        <div class="price">₹5</div>
+                        <ul>
+                            <li>1 Page Resume</li>
+                            <li>Standard Format</li>
+                            <li>Instant Download</li>
+                        </ul>
+                    </div>
+                    <div class="price-option featured">
+                        <h3>Premium Resume</h3>
+                        <div class="price">₹10</div>
+                        <ul>
+                            <li>2 Page Resume</li>
+                            <li>Enhanced Format</li>
+                            <li>Priority Processing</li>
+                            <li>Extra Sections</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="contact" style="display:none;">
+                <h2>Contact Us</h2>
+                <form id="contact-form" action="https://formspree.io/f/xoveboqy" method="POST">
+                    <div class="form-group">
+                        <label for="contact-name">Your Name:</label>
+                        <input type="text" id="contact-name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-email">Your Email:</label>
+                        <input type="email" id="contact-email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-message">Message:</label>
+                        <textarea id="contact-message" name="message" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn">Send Message</button>
+                    </div>
+                </form>
+            </section>
+            
+            <section id="about" style="display:none;">
+                <h2>About RetroResume.site</h2>
+                <p>Founded in 2023 but designed like it's 1999, RetroResume.site brings you the most secure resume building experience on the web with a nostalgic twist.</p>
+                <p>Our advanced security systems ensure your data is protected while you create a professional resume that stands out from the crowd.</p>
+                <p>We believe in simplicity, security, and that classic internet aesthetic we all know and love.</p>
+                <div class="counter">
+                    <img src="https://counter.websiteout.net/compte.php?S=retroresume&C=19&D=0&N=0&M=0" alt="Hit Counter">
+                </div>
+            </section>
+            
+            <section id="payment-section" style="display:none;">
+                <h2>Complete Your Payment</h2>
+                <p>Your resume is ready to generate! Please complete the payment of ₹<span id="final-price">5</span> to download your resume.</p>
+                <button id="pay-button" class="btn">Pay Now</button>
+                <div id="payment-status"></div>
+            </section>
+            
+            <section id="download-section" style="display:none;">
+                <h2>Your Resume is Ready!</h2>
+                <p>Thank you for your payment. Your resume has been generated successfully.</p>
+                <a id="download-link" href="#" class="btn">Download Resume (PDF)</a>
+                <p>This link will expire in 24 hours.</p>
+            </section>
+        </main>
+        
+        <footer>
+            <p>&copy; 2023 RetroResume.site - All Rights Reserved</p>
+            <p>This website is protected by advanced security systems. Any attempt to bypass security will result in immediate IP banning.</p>
+            <div class="footer-links">
+                <a href="#privacy">Privacy Policy</a> | 
+                <a href="#terms">Terms of Service</a> | 
+                <a href="#contact">Contact</a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="security.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
