@@ -3,193 +3,360 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RetroResume.site - Build Your Resume Like It's 1999!</title>
+    <meta name="description" content="RetroResume.site - Create professional resumes with a nostalgic 90s internet aesthetic. Secure, affordable, and user-friendly resume builder.">
+    <meta name="keywords" content="resume builder, professional resume, retro resume, secure resume service, 90s style resume">
+    <meta name="author" content="RetroResume.site">
+    <title>RetroResume.site - Professional Resume Builder with a 90s Twist</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <link rel="icon" type="image/png" href="favicon.png">
 </head>
 <body>
-    <div id="security-overlay"></div>
     <div id="main-container">
         <header>
-            <h1><marquee behavior="scroll" direction="left">Welcome to RetroResume.site - Your 90s Style Resume Builder!</marquee></h1>
-            <div class="blink">NEW! INTERNET RESUME SERVICE</div>
+            <div id="logo">
+                <img src="logo.png" alt="RetroResume.site Logo">
+                <h1>RetroResume.site</h1>
+            </div>
+            <div id="slogan">Craft Your Career Story with a Nostalgic 90s Vibe!</div>
         </header>
-        
+
         <nav>
             <ul>
                 <li><a href="#home" class="active">Home</a></li>
                 <li><a href="#build">Build Resume</a></li>
+                <li><a href="#templates">Templates</a></li>
                 <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#faq">FAQ</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="#about">About</a></li>
             </ul>
         </nav>
-        
+
         <main>
             <section id="home">
-                <h2>Create Your Professional Resume - 1999 Style!</h2>
-                <p>Welcome to the most <strong>secure</strong> and <strong>retro</strong> resume building service on the web! Our advanced security system ensures your data is protected while you create a resume that takes you back to the golden age of the internet.</p>
-                <p>Click "Build Resume" to get started for just ₹5-₹10!</p>
-                <div class="construction">UNDER CONSTRUCTION</div>
+                <h2>Build a Professional Resume with Retro Flair</h2>
+                <p>Welcome to <strong>RetroResume.site</strong>, where modern professionalism meets the iconic 90s internet aesthetic. Create a standout resume with our secure, user-friendly platform for only ₹5-₹15!</p>
+                <p>Our state-of-the-art security ensures your data is protected, while our retro-inspired templates help you shine in the job market.</p>
+                <div class="cta-buttons">
+                    <a href="#build" class="btn">Start Building Now</a>
+                    <a href="#templates" class="btn secondary">Explore Templates</a>
+                </div>
+                <div class="trust-badges">
+                    <img src="secure-icon.png" alt="Secure Payment Badge">
+                    <img src="verified-icon.png" alt="Verified Service Badge">
+                </div>
             </section>
-            
+
             <section id="build" style="display:none;">
-                <h2>Build Your Resume</h2>
+                <h2>Create Your Resume</h2>
                 <form id="resume-form">
                     <fieldset>
                         <legend>Personal Information</legend>
                         <div class="form-group">
                             <label for="fullname">Full Name:*</label>
-                            <input type="text" id="fullname" name="fullname" required>
+                            <input type="text" id="fullname" name="fullname" required placeholder="John Doe">
                         </div>
                         <div class="form-group">
                             <label for="email">Email Address:*</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="email" required placeholder="john.doe@example.com">
                         </div>
                         <div class="form-group">
                             <label for="phone">Phone Number:*</label>
-                            <input type="tel" id="phone" name="phone" required>
+                            <input type="tel" id="phone" name="phone" required placeholder="+91 9876543210">
                         </div>
                         <div class="form-group">
                             <label for="address">Full Address:*</label>
-                            <textarea id="address" name="address" required></textarea>
+                            <textarea id="address" name="address" required placeholder="123 Main St, City, Country"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="linkedin">LinkedIn Profile (Optional):</label>
+                            <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/johndoe">
                         </div>
                     </fieldset>
-                    
+
                     <fieldset>
                         <legend>Education</legend>
-                        <div class="form-group">
-                            <label for="highest_degree">Highest Degree:*</label>
-                            <input type="text" id="highest_degree" name="highest_degree" required>
+                        <div id="education-container">
+                            <div class="education-entry">
+                                <div class="form-group">
+                                    <label for="degree">Degree:*</label>
+                                    <input type="text" name="degree[]" required placeholder="B.Sc. Computer Science">
+                                </div>
+                                <div class="form-group">
+                                    <label for="university">University/Institution:*</label>
+                                    <input type="text" name="university[]" required placeholder="XYZ University">
+                                </div>
+                                <div class="form-group">
+                                    <label for="graduation_year">Year of Graduation:*</label>
+                                    <input type="number" name="graduation_year[]" required min="1900" max="2025" placeholder="2020">
+                                </div>
+                                <div class="form-group">
+                                    <label for="gpa">GPA/Percentage (Optional):</label>
+                                    <input type="text" name="gpa[]" placeholder="3.8/4.0 or 85%">
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="university">University/Institution:*</label>
-                            <input type="text" id="university" name="university" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="graduation_year">Year of Graduation:*</label>
-                            <input type="number" id="graduation_year" name="graduation_year" required>
-                        </div>
+                        <button type="button" id="add-education" class="btn">Add Another Degree</button>
                     </fieldset>
-                    
+
                     <fieldset>
                         <legend>Work Experience</legend>
                         <div id="experience-container">
                             <div class="experience-entry">
                                 <div class="form-group">
-                                    <label>Job Title:*</label>
-                                    <input type="text" name="job_title[]" required>
+                                    <label for="job_title">Job Title:*</label>
+                                    <input type="text" name="job_title[]" required placeholder="Software Engineer">
                                 </div>
                                 <div class="form-group">
-                                    <label>Company:*</label>
-                                    <input type="text" name="company[]" required>
+                                    <label for="company">Company:*</label>
+                                    <input type="text" name="company[]" required placeholder="Tech Corp">
                                 </div>
                                 <div class="form-group">
-                                    <label>Duration (Years):*</label>
-                                    <input type="number" name="duration[]" required>
+                                    <label for="duration">Duration (e.g., 2020-2023):*</label>
+                                    <input type="text" name="duration[]" required placeholder="2020-2023">
                                 </div>
                                 <div class="form-group">
-                                    <label>Responsibilities:*</label>
-                                    <textarea name="responsibilities[]" required></textarea>
+                                    <label for="responsibilities">Key Responsibilities:*</label>
+                                    <textarea name="responsibilities[]" required placeholder="Developed web applications, led team projects..."></textarea>
                                 </div>
                             </div>
                         </div>
                         <button type="button" id="add-experience" class="btn">Add Another Job</button>
                     </fieldset>
-                    
+
                     <fieldset>
-                        <legend>Skills</legend>
+                        <legend>Skills & Certifications</legend>
                         <div class="form-group">
-                            <label for="skills">List Your Skills (comma separated):*</label>
-                            <textarea id="skills" name="skills" required></textarea>
+                            <label for="skills">Technical Skills (comma separated):*</label>
+                            <textarea id="skills" name="skills" required placeholder="Python, JavaScript, SQL, AWS"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="soft_skills">Soft Skills (comma separated):</label>
+                            <textarea id="soft_skills" name="soft_skills" placeholder="Leadership, Communication, Teamwork"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="certifications">Certifications (comma separated):</label>
+                            <textarea id="certifications" name="certifications" placeholder="AWS Certified Developer, Google Analytics"></textarea>
                         </div>
                     </fieldset>
-                    
+
+                    <fieldset>
+                        <legend>Additional Sections</legend>
+                        <div class="form-group">
+                            <label for="projects">Projects (Optional):</label>
+                            <textarea id="projects" name="projects" placeholder="Portfolio Website: Built using HTML, CSS, and JavaScript..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="hobbies">Hobbies & Interests (Optional):</label>
+                            <textarea id="hobbies" name="hobbies" placeholder="Photography, Open-source contributions"></textarea>
+                        </div>
+                    </fieldset>
+
+                    <div class="form-group">
+                        <label for="template-select">Choose Template:*</label>
+                        <select id="template-select" name="template" required>
+                            <option value="basic">Basic Retro (₹5)</option>
+                            <option value="premium">Premium Retro (₹10)</option>
+                            <option value="executive">Executive Retro (₹15)</option>
+                        </select>
+                    </div>
+
                     <div class="form-group">
                         <button type="submit" id="submit-resume" class="btn">Generate Resume (₹<span id="dynamic-price">5</span>)</button>
                     </div>
                 </form>
             </section>
-            
+
+            <section id="templates" style="display:none;">
+                <h2>Explore Our Retro Templates</h2>
+                <div class="template-gallery">
+                    <div class="template-card">
+                        <img src="basic-template.png" alt="Basic Retro Template">
+                        <h3>Basic Retro</h3>
+                        <p>Simple, clean, and nostalgic. Perfect for entry-level professionals.</p>
+                        <p>Price: ₹5</p>
+                    </div>
+                    <div class="template-card">
+                        <img src="premium-template.png" alt="Premium Retro Template">
+                        <h3>Premium Retro</h3>
+                        <p>Enhanced layout with extra sections for a polished look.</p>
+                        <p>Price: ₹10</p>
+                    </div>
+                    <div class="template-card">
+                        <img src="executive-template.png" alt="Executive Retro Template">
+                        <h3>Executive Retro</h3>
+                        <p>Sophisticated design for senior professionals and executives.</p>
+                        <p>Price: ₹15</p>
+                    </div>
+                </div>
+                <a href="#build" class="btn">Start Building with a Template</a>
+            </section>
+
             <section id="pricing" style="display:none;">
-                <h2>Our Simple Pricing</h2>
+                <h2>Transparent Pricing Plans</h2>
                 <div class="pricing-table">
                     <div class="price-option">
-                        <h3>Basic Resume</h3>
+                        <h3>Basic Retro</h3>
                         <div class="price">₹5</div>
                         <ul>
-                            <li>1 Page Resume</li>
-                            <li>Standard Format</li>
-                            <li>Instant Download</li>
+                            <li>1-Page Resume</li>
+                            <li>Classic 90s Template</li>
+                            <li>Instant PDF Download</li>
+                            <li>Basic Support</li>
                         </ul>
+                        <a href="#build" class="btn">Choose Basic</a>
                     </div>
                     <div class="price-option featured">
-                        <h3>Premium Resume</h3>
+                        <h3>Premium Retro</h3>
                         <div class="price">₹10</div>
                         <ul>
-                            <li>2 Page Resume</li>
-                            <li>Enhanced Format</li>
+                            <li>2-Page Resume</li>
+                            <li>Enhanced Template</li>
                             <li>Priority Processing</li>
+                            <li>Email Support</li>
                             <li>Extra Sections</li>
                         </ul>
+                        <a href="#build" class="btn">Choose Premium</a>
+                    </div>
+                    <div class="price-option">
+                        <h3>Executive Retro</h3>
+                        <div class="price">₹15</div>
+                        <ul>
+                            <li>Multi-Page Resume</li>
+                            <li>Premium Template</li>
+                            <li>Priority Processing</li>
+                            <li>24/7 Support</li>
+                            <li>Custom Sections</li>
+                            <li>Editable Source File</li>
+                        </ul>
+                        <a href="#build" class="btn">Choose Executive</a>
                     </div>
                 </div>
             </section>
-            
+
+            <section id="faq" style="display:none;">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-item">
+                    <h3>How secure is my data?</h3>
+                    <p>We use AES-256 encryption and comply with GDPR and CCPA standards to protect your data.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Can I edit my resume after downloading?</h3>
+                    <p>Yes, the Executive plan includes an editable source file. Basic and Premium plans offer PDF downloads.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What payment methods are accepted?</h3>
+                    <p>We accept all major credit/debit cards, UPI, and net banking via Razorpay.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How long does it take to generate a resume?</h3>
+                    <p>Your resume is generated instantly after successful payment.</p>
+                </div>
+                <a href="#contact" class="btn">Ask Another Question</a>
+            </section>
+
             <section id="contact" style="display:none;">
-                <h2>Contact Us</h2>
+                <h2>Get in Touch</h2>
                 <form id="contact-form" action="https://formspree.io/f/xoveboqy" method="POST">
                     <div class="form-group">
-                        <label for="contact-name">Your Name:</label>
-                        <input type="text" id="contact-name" name="name" required>
+                        <label for="contact-name">Your Name:*</label>
+                        <input type="text" id="contact-name" name="name" required placeholder="John Doe">
                     </div>
                     <div class="form-group">
-                        <label for="contact-email">Your Email:</label>
-                        <input type="email" id="contact-email" name="email" required>
+                        <label for="contact-email">Your Email:*</label>
+                        <input type="email" id="contact-email" name="email" required placeholder="john.doe@example.com">
                     </div>
                     <div class="form-group">
-                        <label for="contact-message">Message:</label>
-                        <textarea id="contact-message" name="message" required></textarea>
+                        <label for="contact-subject">Subject:*</label>
+                        <input type="text" id="contact-subject" name="subject" required placeholder="Support Request">
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-message">Message:*</label>
+                        <textarea id="contact-message" name="message" required placeholder="How can we assist you?"></textarea>
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn">Send Message</button>
                     </div>
                 </form>
-            </section>
-            
-            <section id="about" style="display:none;">
-                <h2>About RetroResume.site</h2>
-                <p>Founded in 2023 but designed like it's 1999, RetroResume.site brings you the most secure resume building experience on the web with a nostalgic twist.</p>
-                <p>Our advanced security systems ensure your data is protected while you create a professional resume that stands out from the crowd.</p>
-                <p>We believe in simplicity, security, and that classic internet aesthetic we all know and love.</p>
-                <div class="counter">
-                    <img src="https://counter.websiteout.net/compte.php?S=retroresume&C=19&D=0&N=0&M=0" alt="Hit Counter">
+                <div class="contact-info">
+                    <p>Email: support@retroresume.site</p>
+                    <p>Phone: +91 123-456-7890</p>
+                    <p>Address: 456 Retro Lane, Tech City, India</p>
                 </div>
             </section>
-            
+
+            <section id="about" style="display:none;">
+                <h2>About RetroResume.site</h2>
+                <p>Launched in 2023, RetroResume.site combines cutting-edge technology with the nostalgic charm of the 90s internet. Our mission is to make resume building secure, affordable, and fun.</p>
+                <p>With advanced encryption and a commitment to user privacy, we ensure your data is safe while you create a resume that stands out.</p>
+                <div class="team">
+                    <h3>Our Team</h3>
+                    <div class="team-member">
+                        <img src="team1.jpg" alt="Founder">
+                        <p>Jane Doe - Founder</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="team2.jpg" alt="Tech Lead">
+                        <p>John Smith - Tech Lead</p>
+                    </div>
+                </div>
+                <div class="counter">
+                    <img src="https://counter.websiteout.net/compte.php?S=retroresume&C=19&D=0&N=0&M=0" alt="Visitor Counter">
+                    <p>Trusted by <span id="visitor-count">1000+</span> users!</p>
+                </div>
+            </section>
+
             <section id="payment-section" style="display:none;">
                 <h2>Complete Your Payment</h2>
-                <p>Your resume is ready to generate! Please complete the payment of ₹<span id="final-price">5</span> to download your resume.</p>
+                <p>Your resume is ready to generate! Please complete the payment of ₹<span id="final-price">5</span> to download your professional resume.</p>
                 <button id="pay-button" class="btn">Pay Now</button>
                 <div id="payment-status"></div>
+                <p>Secure payment powered by Razorpay</p>
             </section>
-            
+
             <section id="download-section" style="display:none;">
                 <h2>Your Resume is Ready!</h2>
                 <p>Thank you for your payment. Your resume has been generated successfully.</p>
                 <a id="download-link" href="#" class="btn">Download Resume (PDF)</a>
-                <p>This link will expire in 24 hours.</p>
+                <p>This link expires in 24 hours. Need help? <a href="#contact">Contact us</a>.</p>
             </section>
         </main>
-        
+
         <footer>
-            <p>&copy; 2023 RetroResume.site - All Rights Reserved</p>
-            <p>This website is protected by advanced security systems. Any attempt to bypass security will result in immediate IP banning.</p>
-            <div class="footer-links">
-                <a href="#privacy">Privacy Policy</a> | 
-                <a href="#terms">Terms of Service</a> | 
-                <a href="#contact">Contact</a>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>RetroResume.site</h3>
+                    <p>Building professional resumes with a nostalgic twist since 2023.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#build">Build Resume</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#terms">Terms of Service</a></li>
+                        <li><a href="#refund">Refund Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <ul>
+                        <li><a href="https://twitter.com/retroresume">Twitter</a></li>
+                        <li><a href="https://linkedin.com/company/retroresume">LinkedIn</a></li>
+                        <li><a href="https://facebook.com/retroresume">Facebook</a></li>
+                    </ul>
+                </div>
             </div>
+            <p>© 2025 RetroResume.site. All Rights Reserved.</p>
+            <p>Protected by advanced AES-256 encryption and strict security protocols.</p>
         </footer>
     </div>
 
